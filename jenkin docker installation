@@ -1,0 +1,44 @@
+
+To install Jenkins on Docker, follow these steps:
+
+Install Docker: If you haven't already, install Docker on your machine by following the instructions specific to your operating system. You can download Docker from the official website: https://www.docker.com/get-started.
+
+Pull the Jenkins Image: Open a terminal or command prompt and run the following command to pull the Jenkins image from Docker Hub:
+
+bash
+Copy code
+docker pull jenkins/jenkins
+Run the Jenkins Container: Once the image is downloaded, you can start a new container using the following command:
+
+arduino
+Copy code
+docker run -d -p 8080:8080 -p 50000:50000 --name jenkins jenkins/jenkins
+This command will start a new Jenkins container, mapping the container's port 8080 to the host's port 8080 (for accessing the Jenkins web interface) and port 50000 for the Jenkins agent communication.
+
+Access Jenkins: Open a web browser and navigate to http://localhost:8080. You should see the Jenkins setup wizard.
+
+Unlock Jenkins: To retrieve the initial administrator password, run the following command in the terminal:
+
+Copy code
+docker logs jenkins
+Look for the line that starts with "Jenkins Initial Admin Password" and copy the alphanumeric value.
+
+Paste the password into the Jenkins setup wizard and click "Continue."
+
+Install Recommended Plugins: In the next step, choose the "Install suggested plugins" option. Jenkins will install the necessary plugins for basic functionality.
+
+Create an Admin User: Enter the required details to create an administrator user for Jenkins and click "Save and Finish."
+
+Jenkins Setup Complete: Jenkins is now set up and ready to use. You can either click on "Start using Jenkins" to begin using the default configuration or customize the installation as per your requirements.
+
+That's it! Jenkins is now installed and running on Docker. You can access Jenkins at http://localhost:8080 and start configuring your CI/CD pipelines.
+
+
+
+
+
+User
+docker run -d -p 8080:8080 -p 50000:50000 --name jenkins1 jenkins/jenkins
+86b768c14c1240d51e797f960c9b769f8934c6f7e52b5d790e88329a81a3f507
+docker: Error response from daemon: driver failed programming external connectivity on endpoint jenkins1 (e5b8622874eba2b8a6b0856231d8160a674a2ea4cb4c464b72eb1d7cb6a7f855): Error starting userland proxy: listen tcp4 0.0.0.0:8080: bind: address already in use.
+root@zarvis-ThinkPad-E14:/h
